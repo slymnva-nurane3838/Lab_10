@@ -1,0 +1,16 @@
+import math
+x=3.0
+eps=0.001
+fx=x**2-math.log(1+x**2)-9.75
+toreme_fx=2*x-(2*x/(1+x**2))
+if toreme_fx==0:
+    print('Törəmə sıfıra bərabər olduğu üçün Nyuton üsulu işləmir.')
+else:
+    x2=x-fx/toreme_fx
+    while abs(x2-x)>=eps:
+        x=x2
+        fx=x**2-math.log(1+x**2)-9.75
+        toreme_fx=2*x-(2*x/(1+x**2))
+        x2=x-fx/toreme_fx
+    else:
+        print(x2)
